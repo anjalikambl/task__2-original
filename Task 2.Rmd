@@ -1,0 +1,50 @@
+---
+title: "Prediction using Unsupervised ML"
+
+---
+
+```{r cars}
+data=read.csv("C:/Users/HP/Downloads/Iris (1).csv",header=TRUE)
+data
+dimnames(data)
+head(data)
+data1=data[,-c(1,6)]
+data1
+summary(data1)
+dim(data1)
+colnames(data1)
+is.null(data)
+cor(data1)
+
+#correlation between variables
+library(corrplot)
+corrplot(cor(data1),method="number",bg="BLACK")
+col=as.data.frame(colnames(data1))
+col
+train=data1[1:130,]
+train
+test=data1[130:150,]
+test
+train_sp=data.frame(data[1:130,6])
+attach(train_sp)
+
+#By using kmeans clustering we plot the data
+k=kmeans(train,centers=3,iter.max = 10,nstart=1)
+attach(k)
+
+
+plot(train[c("SepalLengthCm", "SepalWidthCm")], 
+     col = cluster)
+plot(train[c("SepalLengthCm", "SepalWidthCm")], 
+     col = factor(data.1.130..6.), 
+     main = "K-means with 3 clusters",pch=16)
+legend(7,4.5,legend=c("Setosa","Versicolor","Verginica"),col=1:3,pch=16)
+
+points(centers[, c("SepalLengthCm", "SepalWidthCm")],pch=8,col="RED",cex=5)
+
+
+
+```
+
+
+
